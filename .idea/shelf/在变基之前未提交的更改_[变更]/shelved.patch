@@ -1,0 +1,16 @@
+Index: testing/testpro0/baidudemo.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import time\r\n\r\nimport allure\r\nimport pytest\r\nfrom selenium import webdriver\r\n\r\n\r\n@allure.feature(\"百度搜索\")\r\n@pytest.mark.parametrize(\"test_data1\", [\"allure\", \"pytest\", \"unittest\"])\r\ndef test_steps_demo(test_data1):\r\n    with allure.step(\"打开百度网页\"):\r\n        driver = webdriver.Edge(r\"C:\\Users\\17649\\Downloads\\edgedriver_win64\\msedgedriver.exe\")\r\n        driver.get(\"https://www.baidu.com\")\r\n        driver.maximize_window()\r\n\r\n    with allure.step(f\"输入搜索词：{test_data1}\"):\r\n        driver.find_element_by_id(\"kw\").send_keys(test_data1)\r\n        time.sleep(2)\r\n        driver.find_element_by_id(\"su\").send_keys(test_data1)\r\n        time.sleep(2)\r\n\r\n    with allure.step(\"保存图片\"):\r\n        driver.save_screenshot(\"./result/b.png\")\r\n        allure.attach.file(\"./result/b.png\", attachment_type=allure.attachment_type)\r\n\r\n    with allure.step(\"关闭浏览器\"):\r\n        driver.quit()\r\n\r\nprint(111)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/testing/testpro0/baidudemo.py b/testing/testpro0/baidudemo.py
+--- a/testing/testpro0/baidudemo.py	(revision f193b4fc2dbb32acc58ab6858af3c218a2f9e0d1)
++++ b/testing/testpro0/baidudemo.py	(date 1680677400852)
+@@ -26,4 +26,3 @@
+     with allure.step("关闭浏览器"):
+         driver.quit()
+ 
+-print(111)
+\ No newline at end of file
