@@ -26,4 +26,3 @@ def test_steps_demo(test_data1):
     with allure.step("关闭浏览器"):
         driver.quit()
 
-print(111)
